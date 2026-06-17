@@ -1,0 +1,50 @@
+/* ---- Charte Graphique Nectagri ---- */
+:root {
+    --jaune: #fbc531;
+    --noir: #2f3640;
+    --blanc: #ffffff;
+    --gris: #f5f6fa;
+    --texte-muted: #718093;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: var(--gris); color: var(--noir); scroll-behavior: smooth; line-height: 1.6; }
+h2 { font-size: 2.3rem; text-align: center; margin-bottom: 10px; position: relative; padding-bottom: 10px; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--jaune); }
+.section-subtitle { text-align: center; color: var(--texte-muted); margin-bottom: 40px; font-size: 1.1rem; }
+
+/* ---- Barre de Navigation ---- */
+header { background: var(--noir); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 12px 20px; }
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.site-logo { height: 45px; width: 45px; border-radius: 50%; background: var(--blanc); padding: 2px; object-fit: contain; }
+.logo-text { color: var(--jaune); font-size: 1.4rem; font-weight: bold; letter-spacing: 1px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: var(--blanc); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.nav-links a:hover { color: var(--jaune); }
+
+/* ---- Grilles Globaux & Cartes ---- */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.card { background: var(--blanc); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-top: 4px solid var(--jaune); transition: transform 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+/* ---- Formulaires et Boutons ---- */
+.form-container { max-width: 600px; margin: 0 auto; background: var(--blanc); padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.form-group { margin-bottom: 18px; text-align: left; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px; border: 1px solid #dcdde1; border-radius: 6px; font-size: 1rem; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--jaune); }
+.btn-submit { width: 100%; background: var(--noir); color: var(--jaune); border: none; padding: 13px; font-size: 1.1rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+.btn-submit:hover { background: #1e272e; }
+
+/* ---- Pied de page ---- */
+footer { background: var(--noir); color: var(--blanc); padding: 40px 20px 15px 20px; margin-top: 60px; }
+.footer-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 30px; }
+.footer-info h3 { color: var(--jaune); margin-bottom: 15px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.contact-item i { color: var(--jaune); }
+.qr-img { height: 90px; width: 90px; background: var(--blanc); padding: 4px; border-radius: 6px; }
+.footer-bottom { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; }
+
+@media (max-width: 768px) { .navbar, .footer-container { flex-direction: column; gap: 15px; text-align: center; } .contact-item { justify-content: center; } }

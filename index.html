@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectagri - Le goût authentique du miel du Nord'Est</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        .hero { background: linear-gradient(rgba(47,54,64,0.75), rgba(47,54,64,0.75)), url('fond.jpg') center/cover; height: 65vh; display: flex; justify-content: center; align-items: center; text-align: center; color: var(--blanc); padding: 0 20px; }
+        .hero h1 { font-size: 3rem; color: var(--jaune); margin-bottom: 15px; }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 25px auto; }
+        .btn-hero { display: inline-block; background: var(--jaune); color: var(--noir); padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 25px; transition: transform 0.2s; }
+        .btn-hero:hover { transform: scale(1.05); }
+        .category-title { background: #fbc5311f; padding: 10px; display: inline-block; border-radius: 6px; font-weight: bold; margin: 40px auto 20px auto; color: var(--noir); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="nectagri.jpeg" alt="Logo" class="site-logo">
+                <span class="logo-text">NECTAGRI</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#catalogue">Notre Offre</a></li>
+                <li><a href="equipe.html">Nos Apiculteurs</a></li>
+                <li><a href="contact.html">Contact & Commandes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Zone Marketing / Hero -->
+    <section class="hero">
+        <div>
+            <h1>"Le goût authentique du miel du Nord'Est"</h1>
+            <p>Découvrez l'excellence d'une apiculture durable alliée aux richesses gourmandes de notre terroir à Ouanaminthe.</p>
+            <a href="contact.html" class="btn-hero">Commander nos produits</a>
+        </div>
+    </section>
+
+    <!-- Section Catalogue Segmenté -->
+    <section id="catalogue" style="padding: 60px 0; text-align: center;">
+        <h2>Notre Catalogue</h2>
+        <p class="section-subtitle">Une gamme 100% naturelle et de haute qualité.</p>
+
+        <!-- SECTION 1 : PRODUITS DE LA RUCHE & MATÉRIEL -->
+        <div class="category-title">🐝 Produits de la Ruche & Équipements</div>
+        <div class="grid-container">
+            <div class="card"><div class="card-icon">🍯</div><h3>Miel Naturel</h3><p>Pur, brut et extrait à froid pour préserver toutes ses vertus.</p></div>
+            <div class="card"><div class="card-icon">💊</div><h3>Propolis</h3><p>Un bouclier naturel protecteur récolté par nos abeilles.</p></div>
+            <div class="card"><div class="card-icon">🕯️</div><h3>Cire d'Abeille</h3><p>Idéale pour vos soins naturels ou la fabrication de bougies.</p></div>
+            <div class="card"><div class="card-icon">🛠️</div><h3>Matériels & Équipements</h3><p>Tout le nécessaire professionnel pour équiper vos ruchers.</p></div>
+        </div>
+
+        <!-- SECTION 2 : ÉPICERIE FINE ET PRODUITS DU TERROIR -->
+        <div class="category-title">🥑 Notre Épicerie Fine & Saveurs Locales</div>
+        <div class="grid-container">
+            <div class="card"><div class="card-icon">🥜</div><h3>Beurre d'Arachide</h3><p>Onctueux, riche en protéines et préparé de manière artisanale.</p></div>
+            <div class="card"><div class="card-icon">🍍</div><h3>Confiture d'Ananas</h3><p>Toute la douceur et l'exotisme de l'ananas frais de notre région.</p></div>
+            <div class="card"><div class="card-icon">🍊</div><h3>Confiture d'Orange</h3><p>Une recette fruitée traditionnelle avec une touche acidulée unique.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Contactez Nectagri</h3>
+                <p class="contact-item"><i class="fa-solid fa-phone"></i> <span>+(509)31288126 / +(509)33193594</span></p>
+                <p class="contact-item"><i class="fa-solid fa-location-dot"></i> <span>Avenue Capois, Ouanaminthe, Nord'Est.</span></p>
+            </div>
+            <div class="footer-qr">
+                <p>Scannez notre QR Code WhatsApp</p>
+                <img src="scancontact.jpeg" alt="QR Code" class="qr-img">
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Nectagri - Tous droits réservés.</p></div>
+    </footer>
+
+</body>
+</html>
