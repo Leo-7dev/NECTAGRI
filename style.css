@@ -1,463 +1,89 @@
 /* ==========================================================================
-   1. CHARTE GRAPHIQUE ET PARAMÈTRES GLOBAUX (NECTAGRI)
+   1. VARIABLES ET PARAMÈTRES GLOBAUX
    ========================================================================== */
 :root {
-    --jaune: #fbc531;
-    --noir: #1e222b; /* Un noir adouci plus moderne et élégant */
+    --jaune-miel: #fbc531;
+    --noir-elegant: #1e222b;
     --noir-profond: #11141a;
-    --blanc: #ffffff;
-    --gris: #f5f6fa;
-    --texte-muted: #718093;
+    --blanc-pur: #ffffff;
+    --gris-fond: #f5f6fa;
+    --texte-gris: #718093;
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+body { background-color: var(--gris-fond); color: var(--noir-elegant); line-height: 1.5; scroll-behavior: smooth; }
+h2 { font-size: 2rem; text-align: center; margin-bottom: 8px; position: relative; padding-bottom: 8px; }
+h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--jaune-miel); }
+.section-subtitle { text-align: center; color: var(--texte-gris); margin-bottom: 30px; font-size: 1rem; }
 
-body { 
-    background-color: var(--gris); 
-    color: var(--noir); 
-    scroll-behavior: smooth; 
-    line-height: 1.5; 
-}
-
-h2 { 
-    font-size: 2rem; 
-    text-align: center; 
-    margin-bottom: 8px; 
-    position: relative; 
-    padding-bottom: 8px; 
-}
-
-h2::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: 0; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 50px; 
-    height: 3px; 
-    background: var(--jaune); 
-}
-
-.section-subtitle { 
-    text-align: center; 
-    color: var(--texte-muted); 
-    margin-bottom: 30px; 
-    font-size: 1rem; 
-}
+.category-title { background: rgba(251, 197, 49, 0.12); padding: 8px 18px; display: inline-block; border-radius: 20px; font-weight: 600; margin: 40px auto 20px auto; font-size: 0.95rem; clear: both; text-align: center; }
 
 /* ==========================================================================
-   2. BARRE DE NAVIGATION FINE (PC)
+   2. BARRE DE NAVIGATION (HEADER)
    ========================================================================== */
-header { 
-    background: var(--noir); 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06); 
-}
-
-.navbar { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 8px 20px; /* Barre affinée en hauteur */
-}
-
-.logo-container { 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-}
-
-.site-logo { 
-    height: 36px; /* Discret et professionnel */
-    width: 36px; 
-    border-radius: 50%; 
-    background: var(--blanc); 
-    padding: 2px; 
-    object-fit: contain; 
-}
-
-.logo-text { 
-    color: var(--jaune); 
-    font-size: 1.2rem; 
-    font-weight: 700; 
-    letter-spacing: 0.5px; 
-}
-
-.nav-links { 
-    display: flex; 
-    list-style: none; 
-    gap: 25px; 
-}
-
-.nav-links a { 
-    color: #f5f6fa; 
-    text-decoration: none; 
-    font-weight: 500; 
-    font-size: 0.95rem;
-    transition: color 0.2s ease; 
-}
-
-.nav-links a:hover { 
-    color: var(--jaune); 
-}
+header { background: var(--noir-elegant); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+.navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 8px 20px; }
+.logo-container { display: flex; align-items: center; gap: 8px; }
+.site-logo { height: 36px; width: 36px; border-radius: 50%; background: var(--blanc-pur); padding: 2px; object-fit: contain; }
+.logo-text { color: var(--jaune-miel); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: #f5f6fa; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--jaune-miel); }
 
 /* ==========================================================================
-   3. ZONE HERO MARKETING (ACCUEIL)
+   3. GRILLE DE CARTES (PRODUITS / SERVICES / ÉQUIPE)
    ========================================================================== */
-.hero { 
-    background: linear-gradient(rgba(30,34,43,0.75), rgba(30,34,43,0.75)), url('fond.jpg') center/cover; 
-    padding: 60px 20px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    color: var(--blanc); 
-}
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.card { background: var(--blanc-pur); padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-top: 4px solid var(--jaune-miel); transition: transform 0.2s; }
+.card:hover { transform: translateY(-4px); }
+.card-icon { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+.card h3 { margin-bottom: 8px; font-size: 1.2rem; }
+.card p { color: var(--texte-gris); font-size: 0.9rem; }
 
-.hero h1 { 
-    font-size: 2.4rem; 
-    color: var(--jaune); 
-    margin-bottom: 12px; 
-    font-weight: 700;
-}
-
-.hero p { 
-    font-size: 1.1rem; 
-    max-width: 650px; 
-    margin: 0 auto 20px auto; 
-    color: #f5f6fa;
-}
-
-.btn-hero { 
-    display: inline-block; 
-    background: var(--jaune); 
-    color: var(--noir-profond); 
-    padding: 10px 24px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    border-radius: 20px; 
-    font-size: 0.95rem;
-    transition: transform 0.2s, box-shadow 0.2s; 
-}
-
-.btn-hero:hover { 
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(251, 197, 49, 0.3);
-}
-
-.category-title { 
-    background: rgba(251, 197, 49, 0.1); 
-    padding: 6px 14px; 
-    display: inline-block; 
-    border-radius: 20px; 
-    font-weight: 600; 
-    margin: 30px auto 15px auto; 
-    color: var(--noir);
-    font-size: 0.95rem;
-}
+/* Boutons au design Pro */
+.btn-submit { width: 100%; background: var(--noir-elegant); color: var(--jaune-miel); border: none; padding: 10px 20px; font-size: 0.95rem; font-weight: bold; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: background 0.2s; text-align: center; text-decoration: none; display: inline-block; }
+.btn-submit:hover { background: var(--noir-profond); }
 
 /* ==========================================================================
-   4. GRILLES ET CARTES DE PRODUITS
+   4. STRUCTURES DU PANIER D'ACHATS ET FORMULAIRES
    ========================================================================== */
-.grid-container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 20px; 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
-}
+.form-container { max-width: 500px; margin: 30px auto 0 auto; background: var(--blanc-pur); padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+.form-group { margin-bottom: 14px; text-align: left; }
+.form-group label { display: block; margin-bottom: 4px; font-weight: 600; font-size: 0.9rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 9px 12px; border: 1px solid #dcdde1; border-radius: 5px; font-size: 0.95rem; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--jaune-miel); }
 
-.card { 
-    background: var(--blanc); 
-    padding: 20px; 
-    border-radius: 8px; 
-    text-align: center; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02); 
-    border-top: 3px solid var(--jaune); 
-    transition: transform 0.2s, box-shadow 0.2s; 
-}
-
-.card:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 15px rgba(0,0,0,0.06); 
-}
-
-.card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: var(--texte-muted);
-}
-
-.card-icon { 
-    font-size: 2.2rem; 
-    margin-bottom: 10px; 
-}
+.cart-box { background: #f8f9fa; padding: 12px 15px; border-radius: 6px; margin-bottom: 15px; border-left: 3px solid var(--jaune-miel); text-align: left; font-size: 0.95rem; }
+.cart-line { display: flex; justify-content: space-between; margin-bottom: 6px; align-items: center; }
 
 /* ==========================================================================
-   5. INTERFACES DE COMMANDE, ONGLETS ET FORMULAIRES
+   5. BOUTON FLOTTANT FIXE WHATSAPP NATIF (TOUTES LES PAGES)
    ========================================================================== */
-.tabs { 
-    display: flex; 
-    justify-content: center; 
-    gap: 12px; 
-    margin: 25px 0; 
-}
-
-.tab-btn { 
-    padding: 10px 20px; 
-    border-radius: 20px; 
-    border: 1.5px solid var(--noir); 
-    background: var(--blanc); 
-    font-weight: 600; 
-    font-size: 0.95rem;
-    cursor: pointer; 
-    transition: all 0.2s ease;
-}
-
-.tab-btn.active { 
-    background: var(--jaune); 
-    border-color: var(--jaune); 
-    box-shadow: 0 3px 8px rgba(251, 197, 49, 0.2);
-}
-
-.panel { 
-    display: none; 
-    max-width: 900px; 
-    margin: 0 auto; 
-    padding: 0 15px; 
-}
-
-.panel.active { 
-    display: block; 
-}
-
-.cart-box { 
-    background: #f8f9fa; 
-    padding: 12px 15px; 
-    border-radius: 6px; 
-    margin-bottom: 15px; 
-    border-left: 3px solid var(--jaune); 
-    text-align: left;
-    font-size: 0.95rem;
-}
-
-.cart-line { 
-    display: flex; 
-    justify-content: space-between; 
-    margin-bottom: 6px; 
-}
-
-.form-container { 
-    max-width: 500px; 
-    margin: 0 auto; 
-    background: var(--blanc); 
-    padding: 25px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
-}
-
-.form-group { 
-    margin-bottom: 14px; 
-    text-align: left; 
-}
-
-.form-group label { 
-    display: block; 
-    margin-bottom: 4px; 
-    font-weight: 600; 
-    font-size: 0.9rem; 
-}
-
-.form-group input, 
-.form-group textarea, 
-.form-group select { 
-    width: 100%; 
-    padding: 9px 12px; 
-    border: 1px solid #dcdde1; 
-    border-radius: 5px; 
-    font-size: 0.95rem; 
-    outline: none; 
-}
-
-.form-group input:focus, 
-.form-group textarea:focus { 
-    border-color: var(--jaune); 
-}
-
-.btn-submit { 
-    width: 100%; 
-    background: var(--noir); 
-    color: var(--jaune); 
-    border: none; 
-    padding: 11px; 
-    font-size: 1rem; 
-    font-weight: 600; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background 0.2s; 
-}
-
-.btn-submit:hover { 
-    background: var(--noir-profond); 
-}
+.whatsapp-fixed-btn { position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px; background-color: #25d366; border-radius: 50%; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); z-index: 9999; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s ease; }
+.whatsapp-fixed-btn:hover { transform: scale(1.1); }
 
 /* ==========================================================================
-   6. PIED DE PAGE ULTRA-FIN (FOOTER)
+   6. PIED DE PAGE (FOOTER) & RESPONSIVE
    ========================================================================== */
-footer { 
-    background: var(--noir); 
-    color: var(--blanc); 
-    padding: 25px 20px 12px 20px; /* Fin et aéré */
-    margin-top: 50px; 
-}
+footer { background: var(--noir-elegant); color: #fff; padding: 25px 20px 12px 20px; margin-top: 50px; }
+.footer-container { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; gap: 15px; }
+.footer-info h3 { color: var(--jaune-miel); margin-bottom: 8px; font-size: 1.1rem; }
+.contact-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.9rem; }
+.contact-item i { color: var(--jaune-miel); }
+.footer-qr { text-align: center; }
+.footer-qr p { font-size: 0.8rem; color: var(--jaune-miel); margin-bottom: 5px; }
+.qr-img { height: 70px; width: 70px; background: #fff; padding: 3px; border-radius: 4px; }
+.footer-bottom { text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: #a4b0be; }
 
-.footer-container { 
-    display: flex; 
-    justify-content: space-around; 
-    align-items: center; 
-    flex-wrap: wrap; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    gap: 15px; 
-}
-
-.footer-info h3 { 
-    color: var(--jaune); 
-    margin-bottom: 8px; 
-    font-size: 1.1rem;
-}
-
-.contact-item { 
-    display: flex; 
-    align-items: center; 
-    gap: 8px; 
-    margin-bottom: 6px; 
-    font-size: 0.9rem;
-}
-
-.contact-item i { 
-    color: var(--jaune); 
-}
-
-.footer-qr {
-    text-align: center;
-}
-
-.footer-qr p {
-    font-size: 0.8rem;
-    color: var(--jaune);
-    margin-bottom: 5px;
-}
-
-.qr-img { 
-    height: 70px; /* Plus petit pour ne pas encombrer */
-    width: 70px; 
-    background: var(--blanc); 
-    padding: 3px; 
-    border-radius: 4px; 
-}
-
-.footer-bottom { 
-    text-align: center; 
-    margin-top: 15px; 
-    padding-top: 10px; 
-    border-top: 1px solid rgba(255,255,255,0.05); 
-    font-size: 0.8rem; 
-    color: #a4b0be;
-}
-
-/* ==========================================================================
-   7. DESIGN MOBILE ULTRA-COMPACT (RESPONSIVE)
-   ========================================================================== */
 @media (max-width: 768px) {
-    /* En-tête mobile compact */
-    .navbar {
-        flex-direction: column;
-        gap: 6px;
-        padding: 8px 10px;
-    }
-
-    .logo-container {
-        margin-bottom: 0px;
-    }
-
-    .site-logo {
-        height: 32px;
-        width: 32px;
-    }
-
-    .logo-text {
-        font-size: 1.1rem;
-    }
-
-    /* Liens discrets alignés */
-    .nav-links {
-        gap: 12px;
-    }
-
-    .nav-links a {
-        font-size: 0.8rem;
-    }
-
-    /* Contenu responsive adaptatif */
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    .hero h1 {
-        font-size: 1.5rem !important;
-        line-height: 1.3;
-    }
-
-    .hero p {
-        font-size: 0.9rem;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr !important;
-        padding: 0 15px;
-        gap: 12px;
-    }
-
-    .form-container {
-        padding: 20px;
-        margin: 0 10px;
-    }
-
-    .cart-line {
-        flex-direction: column;
-        gap: 4px;
-        align-items: flex-start;
-    }
-
-    /* Pied de page condensé */
-    footer {
-        padding: 20px 15px 10px 15px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-    }
-
-    .contact-item {
-        font-size: 0.85rem;
-        margin-bottom: 4px;
-        justify-content: center;
-    }
+    .navbar { flex-direction: column; gap: 6px; padding: 8px 10px; }
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: 0.8rem; }
+    h2 { font-size: 1.6rem; }
+    .grid-container { grid-template-columns: 1fr !important; padding: 0 15px; gap: 12px; }
+    .form-container { padding: 20px; margin: 0 10px; }
+    .cart-line { flex-direction: column; gap: 4px; align-items: flex-start; }
+    footer { padding: 20px 15px 10px 15px; }
+    .footer-container { flex-direction: column; gap: 12px; text-align: center; }
+    .contact-item { font-size: 0.85rem; margin-bottom: 4px; justify-content: center; }
 }

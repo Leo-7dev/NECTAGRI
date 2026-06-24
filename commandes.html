@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nectagri - Composer mon Panier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="nectagri.jpeg" alt="Logo" class="site-logo">
+                <span class="logo-text">NECTAGRI</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Boutique & Services</a></li>
+                <li><a href="equipe.html">Nos Apiculteurs</a></li>
+                <li><a href="commandes.html">Passer Commande</a></li>
+                <li><a href="contact.html">Nous Contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section style="padding: 40px 0; text-align: center;">
+        <h2>Votre Panier de Commande</h2>
+        <p class="section-subtitle">Sélectionnez vos articles pour composer votre panier d'achat.</p>
+        
+        <div class="category-title">🐝 Ruche & Matériels</div>
+        <div class="grid-container" style="margin-bottom: 20px;">
+            <div class="card"><h3>Miel Naturel</h3><button class="btn-submit" onclick="add('Miel Naturel')">Ajouter au panier</button></div>
+            <div class="card"><h3>Propolis</h3><button class="btn-submit" onclick="add('Propolis')">Ajouter au panier</button></div>
+            <div class="card"><h3>Cire d'Abeille</h3><button class="btn-submit" onclick="add('Cire d\'Abeille')">Ajouter au panier</button></div>
+            <div class="card"><h3>Matériels Apicoles</h3><button class="btn-submit" onclick="add('Matériels Apicoles')">Ajouter au panier</button></div>
+        </div>
+
+        <div class="category-title">🍓 Épicerie Fine & Saveurs</div>
+        <div class="grid-container" style="margin-bottom: 40px;">
+            <div class="card"><h3>Beurre d'Arachide</h3><button class="btn-submit" onclick="add('Beurre d\'Arachide')">Ajouter au panier</button></div>
+            <div class="card"><h3>Confiture d'Ananas</h3><button class="btn-submit" onclick="add('Confiture d\'Ananas')">Ajouter au panier</button></div>
+            <div class="card"><h3>Confiture d'Orange</h3><button class="btn-submit" onclick="add('Confiture d\'Orange')">Ajouter au panier</button></div>
+        </div>
+
+        <div class="form-container">
+            <div class="cart-box" id="cart-list">Votre panier est vide.</div>
+            <form id="orderForm">
+                <div class="form-group"><label>Nom complet</label><input type="text" id="o-name" required></div>
+                <div class="form-group"><label>Numéro de téléphone</label><input type="tel" id="o-phone" required></div>
+                <div class="form-group"><label>Adresse de livraison</label><input type="text" id="o-addr" required></div>
+                <button type="submit" class="btn-submit">Envoyer ma commande sur WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Contactez Nectagri</h3>
+                <p class="contact-item"><span>+(509)3128-8126 / +(509)3319-3594</span></p>
+                <p class="contact-item"><span>Avenue Capois, Ouanaminthe, Nord'Est.</span></p>
+            </div>
+            <div class="footer-qr"><p>WhatsApp</p><img src="scancontact.jpeg" alt="QR Code" class="qr-img"></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Nectagri - Tous droits réservés.</p></div>
+    </footer>
+
+    <a href="https://wa.me" class="whatsapp-fixed-btn" target="_blank">
+        <svg xmlns="http://w3.org" viewBox="0 0 448 512" width="28" height="28" fill="#ffffff"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+
+    <script>
+        let cart = [];
+        function add(p) { let f = cart.find(i => i.nom === p); if(f) f.qte++; else cart.push({nom: p, qte: 1}); update(); }
+        function remove(p) { cart = cart.filter(i => i.nom !== p); update(); }
+        function update() {
+            let b = document.getElementById('cart-list'); if(cart.length === 0) { b.innerHTML = "Votre panier est vide."; return; }
+            b.innerHTML = ""; cart.forEach(i => {
+                b.innerHTML += `<div class="cart-line"><span><b>${i.nom}</b> (x${i.qte})</span><button style="color:red; background:none; border:none; cursor:pointer;" onclick="remove('${i.nom.replace(/'/g, "\\'")}')">Retirer</button></div>`;
+            });
+        }
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault(); if(cart.length === 0) { alert("Panier vide !"); return; }
+            let l = ""; cart.forEach(i => l += "• " + i.nom + " (x" + i.qte + ")\n");
+            let m = "Bonjour Nectagri ! 👋\n\n*Nouvelle Commande Site*\n👤 *Client :* " + document.getElementById('o-name').value + "\n📞 *Tél :* " + document.getElementById('o-phone').value + "\n📍 *Adresse :* " + document.getElementById('o-addr').value + "\n\n🛒 *Articles :*\n" + l;
+            window.open("https://wa.me?text=" + encodeURIComponent(m), '_blank');
+            cart = []; update(); this.reset();
+        });
+    </script>
+</body>
+</html>
